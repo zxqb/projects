@@ -1,0 +1,691 @@
+@import 'variables'
+@import 'mixin'
+@import 'header'
+@import 'animation'
+@import 'footer'
+
+@font-face 
+    font-family: 'OS'
+    src: url('../fonts/opensans.woff2') format('woff2'), url('../fonts/opensans.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+@font-face 
+    font-family: 'OS-bold'
+    src: url('../fonts/bold.woff2') format('woff2'), url('../fonts/bold.woff') format('woff')
+    font-weight: bold
+    font-style: normal
+
+@font-face 
+    font-family: 'pd'
+    src: url('../fonts/pd.woff2') format('woff2'), url('../fonts/pd.woff') format('woff')
+
+// main
+* 
+    font-family: OS
+    box-sizing: border-box
+    &:focus 
+        outline: none
+    transition: all .2s
+
+img 
+    width: 100%
+
+section   
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+.container
+    width: 100%
+    max-width: 1340px
+    padding-left: 30px
+    padding-right: 30px
+    @include _1170
+        padding-left: 35px
+        padding-right: 35px
+    @include _979
+        padding-left: 70px
+        padding-right: 70px
+    @include _650
+        padding-left: 12px
+        padding-right: 12px
+
+.btn    
+    @include button-empt() 
+
+h2 
+    font-size: 32px
+    @include _480
+        font-size: 24px
+// header 
+
+
+//  main
+.main
+    display: flex
+    flex-direction: column
+    align-items: center
+
+//  hero    
+.hero   
+    position: relative
+    font-weight: 700
+    margin-top: 32px
+    @include _650
+        width: 100%
+    width: 100%
+    background-image: url("../img/hero/hero-1920.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    @include _1170
+        background-image: url("../img/hero/hero-1024.jpg")                
+    @include _768
+        background-image: url("../img/hero/hero-768.jpg")
+    @include _350
+        background-size: 100% 67%
+    &__title
+        font-size: 48px
+        color: $grey
+        grid-column: 1/6
+        grid-row: 1
+        line-height: 131%
+        position: relative
+        top: 5%
+        letter-spacing: 2px
+        align-self: end
+        font-family: 'OS-bold'
+        @include _650
+            font-size: 20px
+            align-self: baseline
+        @include _350
+            left: 18px
+            top: 28px
+            line-height: 140%
+            letter-spacing: 1px
+            
+    &__btn
+        @include button-main() 
+        padding: 20px 52px
+        position: relative
+        top: -10px
+        grid-column: 1/2
+        grid-row: 2
+        @include _650
+            grid-column: 1/7
+            align-self: end
+.hero-container
+    top: 0
+    width: 100%
+    height: 100%
+    margin: auto
+    left: 0 
+    right: 0
+    display: grid 
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-rows: minmax(200px, 1fr) minmax(200px, 1fr)
+    align-items: center
+    @include _1170
+        grid-template-columns: repeat(6, 1fr)
+    @include _650
+        grid-template-rows: 208px 103px
+
+// special 
+
+.special 
+    padding-top: 64px 
+    @include _650
+        padding-top: 61px 
+    &__title
+        margin-bottom: 21px 
+        @include _650
+            margin-bottom: 26px 
+            line-height: 100%
+    &__list
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-template-rows: minmax(511px, auto)
+        grid-auto-rows: minmax(511px, auto)
+        gap: 32px
+        @include _1170
+            grid-template-columns: repeat(9, 1fr)
+        @include _979
+            grid-template-columns: repeat(6, 1fr)
+        @include _350
+            gap: 24px
+    &__item
+        grid-column: auto / span 3
+        grid-row: auto
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+        padding: 30px
+        position: relative
+        background-color: $grey-light
+        border-radius: 15px
+        &:nth-child(n+4)
+            display: none
+        &:nth-child(2)
+            grid-column: auto / span 6
+        @include _1170
+            &:nth-child(2)
+                grid-column: auto / span 3
+        @include _979
+            &:nth-child(n+3)
+                display: none
+        @include _650
+            &:nth-child(n+3)
+                display: flex
+            &:nth-child(2)
+                grid-column: auto / span 6
+            grid-column: auto / span 6
+    &__item-sale
+        position: absolute
+        left: 0 
+        top: 30px
+        padding: 6px  18px 6px 24px
+        background-color: $orange
+        font-weight: 700
+        color: #fff
+        &::before
+            content: ''
+            position: absolute
+            right: -29px
+            bottom: 0
+            border: 17px solid transparent
+            border-left: 12px solid $orange
+    &__item-pic 
+        max-height: 245px
+        display: flex
+        @include _650
+            width: 100%
+        @include _350
+            width: auto
+    &__item-schema-pic
+        position: absolute
+        bottom: 25px 
+        right: 30px
+        @include _1170
+            display: none
+    &__item-pic img
+        object-fit: contain
+
+    &__item-price 
+        color: $orange
+        
+    &__item-new-price
+        margin-right: 35px
+    &__item-last-price
+        color: $grey
+        text-decoration: line-through
+    &__item-name
+        font-size: 24px
+        color: $black
+    &__item-up
+        display: flex
+        height: 100%
+        justify-content: center
+        align-items: flex-end
+        padding-bottom: 16px
+    &__item-down
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        min-height: 183px
+    &__item-btn 
+        @include button-empt() 
+        align-self: flex-start
+        @include _650
+            padding: 10px 25px
+        @include _350
+            padding: 17px 35px
+
+// rating
+
+.rating
+    padding-top: 67px 
+    &__title
+        margin-bottom: 21px 
+    &__list
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-template-rows: minmax(420px, auto)
+        grid-auto-rows: minmax(420px, auto)
+        gap: 32px
+        
+        @include _1170
+            grid-template-columns: repeat(9, 1fr)
+        @include _979
+            grid-template-columns: repeat(6, 1fr)
+        @include _650
+            gap: 15px
+            grid-template-rows: minmax(278px, auto)
+            grid-auto-rows: minmax(278px, auto)
+    &__item
+        @include _1170
+            &:nth-child(n+7)
+                display: none
+    @include catalog-item()
+    &__item-up
+        min-height: 200px
+        
+    
+        
+//  banner    
+.banner   
+    position: relative
+    font-weight: 400 
+    margin-top: 70px
+
+    @include _650
+        min-height: 302px
+    &__pic 
+        display: block
+        height: 600px
+        & img
+            object-fit: cover
+            min-height: 600px
+        @include _650
+            height: auto
+            min-height: 210px
+            & img
+                min-height: 210px
+    &__title
+        font-size: 48px
+        color: #fff
+        grid-column: 1/6
+        grid-row: 1/2
+        font-weight: 400
+        line-height: 120%
+        top: 40px
+        position: relative
+        align-self: end
+        @include _650
+            font-size: 16px
+            top: -8px
+            align-self: center
+            letter-spacing: 0.5px
+        & span 
+            letter-spacing: 2.9px
+            font-family: pd
+            font-weight: 900
+            color: #D5B986
+            font-size: 60px
+            margin-bottom: 10px
+            @include _650
+                font-size: 24px
+    &__btn
+        @include button-main() 
+        grid-column: 1/2
+        grid-row: 2/3
+        position: relative
+        top: -30px
+        padding: 20px 40px
+        @include _650
+            grid-column: 1/7
+            align-self: end
+            top: 0
+            width: 100%
+.banner-container
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+    margin: auto
+    left: 0 
+    right: 0
+    display: grid 
+    grid-template-columns: repeat(12, 1fr)
+    grid-template-rows: 1fr 1fr
+    align-items: center
+    @include _768
+        grid-template-columns: repeat(6, 1fr)
+        padding: 0 36px
+    @include _650
+        padding: 0 12px
+// top
+
+.top
+    padding-top: 64px 
+    @include _650
+        padding-top: 66px 
+    &__title
+        margin-bottom: 21px 
+    &__list
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-template-rows: minmax(511px, auto) minmax(405px, auto)
+        grid-auto-rows: minmax(405px, auto)
+        gap: 32px
+        @include _1170
+            grid-template-columns: repeat(9, 1fr)
+            grid-template-rows: minmax(511px, auto) minmax(511px, auto)
+            grid-auto-rows: minmax(511px, auto)
+        @include _979
+            grid-template-columns: repeat(6, 1fr)
+        @include _650
+            grid-template-rows: minmax(332px, auto) minmax(206px, auto)
+            grid-auto-rows: minmax(206px, auto)
+            column-gap: 15px
+    &__item
+        grid-column: auto / span 4
+        grid-row: auto
+        background-color: $grey-light
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        padding: 30px
+        position: relative
+        overflow: hidden
+        border-radius: 10px
+        &:not(:nth-child(n+3))
+            grid-column: auto / span 6
+        @include _1170
+            &:nth-child(n+2)
+                grid-column: auto / span 3
+        @include _480
+            &:nth-child(n+2) .top__item-category
+                font-size: 16px
+        background-repeat: no-repeat
+        background-position: 0 59%
+        @include _650
+            background-size: contain
+            padding: 15px
+    &__item-char
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        margin-bottom: 10px
+        & li 
+            color: $grey
+            font-size: 14px
+            &:not(:last-child)
+                margin-right: 30px
+                @include _650
+                    margin-right: 20px
+            @include _650
+                font-size: 10px
+        @include _650
+            margin-bottom: 2px
+            flex-direction: column
+    &__item-sofa
+        background-image: url(../img/top/top-sofa-1920.webp)
+        @include _1170
+            order: 1
+        @include _650
+            background-position: -50px 88%
+            background-size: 120%
+    &__item-chair
+        background-image: url(../img/top/top-chair-1920.webp)
+        @include _1170
+            background-image: url(../img/top/chair-1024.webp)
+            order: 5
+        @include _650
+            background-image: url(../img/top/top-chair-1920.webp)
+            background-position: 0px 88%
+            background-size: 99%
+    &__item-dresser
+        background-image: url(../img/top/top-dresser-1920.webp)
+        @include _1170
+            order: 3
+            background-image: url(../img/top/dresser-1024.webp)
+        @include _768
+            order: 4
+        @include _650
+            background-image: url(../img/top/top-dresser-1920.webp)
+            background-position: 0px 88%
+            background-size: 103%   
+    &__item-bed
+        background-image: url(../img/top/top-bed-1920.webp)
+        @include _1170
+            order: 2
+            background-image: url(../img/top/bed-1024.webp)
+        @include _650
+            background-image: url(../img/top/top-bed-1920.webp)
+            background-position: -2px 85%
+            background-size: 113%
+    &__item-armchair
+        background-image: url(../img/top/top-armchair-1920.webp)
+        @include _1170
+            order: 4
+            background-image: url(../img/top/armchair-1024.webp)
+        @include _768
+            order: 3
+        @include _650
+            background-image: url(../img/top/top-armchair-1920.webp)
+            background-position: -17px 85%
+            background-size: 125%
+    &__item-category
+        font-size: 24px
+        @include arrow-svg-animation()
+    &__item-category-arrow
+        display: none
+        @include _650
+            display: inline-block
+            position: relative
+            top: 5px
+            
+    &__link 
+        color: #A65CF0
+        margin-right: 10px
+        position: relative
+        border-bottom: 2px solid #ffffff00
+    &__item-down
+        display: flex
+        align-items: center
+        @include arrow-svg-animation()
+
+        &:hover
+            a   
+                border-bottom: 2px solid #A65CF0
+        &:focus 
+            a   
+                border-bottom: 2px solid #A65CF0
+            svg  circle 
+                fill: #C998FB
+            svg path 
+                fill: #fff
+        &:active
+            a   
+                color: #7033AC
+                border-bottom: 2px solid #7033AC
+            svg  circle 
+                fill: #7033AC
+                stroke: #7033AC
+            svg path 
+                fill: #fff
+
+        @include _650
+                display: none
+
+
+// useful
+
+.useful
+
+    padding-top: 64px 
+    @include _650
+        padding-top: 67px
+    &__title
+        margin-bottom: 21px 
+    &__list
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-template-rows: minmax(676px, auto) 
+        grid-auto-rows: minmax(676px, auto)
+        gap: 32px
+        @include _1170
+            grid-template-columns: repeat(9, 1fr)
+            grid-template-rows: minmax(456px, auto)
+             grid-auto-rows: minmax(456px, auto) 
+        @include _979
+            grid-template-columns: repeat(6, 1fr)
+        @include _650
+            grid-auto-rows: minmax(456px, auto)
+            gap: 25px
+
+    &__item
+        grid-column: auto / span 6
+        grid-row: auto
+        background-color: $grey-light
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        
+        &:nth-child(n+3)
+            display: none
+        @include _1170
+            grid-column: auto / span 3
+            &:nth-child(n+3)
+                display: flex
+            &:nth-child(n+4)
+                display: none
+        @include _979
+            &:nth-child(n+3)
+                display: none
+        @include _650
+            grid-column: auto / span 6
+            &:nth-child(n)
+                display: flex
+    &__item-down 
+        min-height: 245px
+        padding: 25px 30px 30px 30px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        @include _1170
+            padding-top: 22px
+    &__item-text
+        line-height: 140%
+        font-size: 24px
+        @include _1170
+            font-size: 16px
+            line-height: 135%
+    &__item-btn
+        align-self: flex-start
+
+// feedback
+
+.feedback
+    padding-top: 64px 
+    padding-bottom: 68px
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+
+    @include _1170
+            grid-template-columns: repeat(9, 1fr)
+    @include _979
+            grid-template-columns: repeat(6, 1fr)
+
+    @include _650
+        padding-bottom: 66px
+    &__title
+        margin-bottom: 7px
+    &__description
+        font-size: 14px
+        margin-bottom: 17px
+        line-height: 120%
+        @include _1170
+            line-height: 128%
+    &__left
+        grid-column: 1/7
+        grid-row: 1
+        width: 97.5%
+        @include _1170
+            grid-column: 1/5
+            width: 95.5%
+        @include _650
+            grid-column: 1/7
+
+
+    &__right    
+        grid-column: 7/13
+        grid-row: 1
+        @include _1170
+            grid-column: 5/10
+        @include _979
+            grid-column: 5/7
+        @include _650
+            display: none
+        background-image: url(../img/form/form-1920.webp)
+        background-repeat: no-repeat
+        background-position: 17px 31px
+        background-size: contain
+        @include _1170
+            background-position: 8px 77px
+        @include _768
+            background-position: 8px 0px
+            background-image: url(../img/form/form-768.webp)
+    &__form
+        display: flex
+        flex-direction: column
+    &__form-input
+        border: none
+        border-radius: 10px
+        background-color: $grey-light
+        margin-bottom: 30px
+        padding: 16px 10px
+        color: $grey
+        &::placeholder
+            color: $grey
+        &:last-of-type
+            margin-bottom: 32px 
+        &:hover
+            background-color: #EAEAEA
+        &:focus
+            background-color: #F8EFFF
+            border-color: 2px solid #A65CF0
+    &__form-btn
+        align-self: flex-start
+        @include button-main()
+        margin-bottom: 11px
+    &__form-agree
+        position: relative
+    &__form-agree-check
+        align-self: flex-start
+        display: inline
+        position: absolute
+        opacity: 0
+        cursor: pointer
+        height: 0
+        width: 0
+        &:checked ~ span
+             background-color: #A65CF0
+             border: 1px solid #A65CF0
+        &:checked ~ span:after 
+            display: block
+    &__form-agree-checkmark
+        position: absolute
+        top: 0
+        left: 0
+        height: 20px
+        width: 20px
+        background-color: #fff
+        border: 1px solid #999
+        border-radius: 2px 
+        cursor: pointer
+        &:after 
+            content: ""
+            position: absolute
+            display: none
+            left: 5px
+            top: 1px
+            width: 5px
+            height: 10px
+            border: solid white
+            border-width: 0 2px 2px 0
+            -webkit-transform: rotate(45deg)
+            -ms-transform: rotate(45deg)
+            transform: rotate(45deg)
+            
+
+    &__form-agree-text
+        padding-left: 25px
+        letter-spacing: -1px
+        a 
+            color: #A65CF0
+            border-bottom: .5px solid #A65CF0
+        @include _650
+            font-size: 12px
+        
+

@@ -1,0 +1,163 @@
+@mixin button-main() 
+    cursor: pointer
+    background-color:  #A65CF0
+    border-radius: 10px
+    padding: 17px 35px
+    color: #fff 
+    border: 2px solid #A65CF0
+    &:hover 
+        border: 2px solid #C998FB
+        background-color:  #C998FB
+    &:focus 
+        border: 2px solid #7033AC
+        background-color:  #C998FB
+    &:active 
+        border: 2px solid #7033AC
+        background-color:  #7033AC
+    
+
+
+@mixin button-empt() 
+    cursor: pointer
+    background-color: initial
+    border-radius: 10px
+    padding: 17px 35px
+    color: #A65CF0
+    border: 2px solid #A65CF0
+    &:hover 
+        color: #fff 
+        border: 2px solid #C998FB
+        background-color:  #C998FB
+        
+    &:focus 
+        border: 2px solid #7033AC
+        background-color:  #C998FB
+        color: #fff 
+    &:active 
+        border: 2px solid #7033AC
+        background-color:  #7033AC
+        color: #fff 
+       
+
+
+
+    
+
+    
+
+    
+
+
+@mixin svg-fill-hover() 
+    &:hover  svg > path
+        fill: #A65CF0
+    
+    &:active  svg  > path
+        fill: #7033AC
+        
+    &:focus  svg   > path
+        fill: #7033AC
+
+
+@mixin grey-text-item()
+    cursor: pointer
+    &:hover
+        color: #A65CF0
+    &:focus
+        color: #7033AC
+        background-color: #EBD1FF
+    & a:focus
+        color: #7033AC
+        background-color: #EBD1FF
+        outline: 1px solid initial
+    &:active
+        background-color: initial
+        color: #7033AC
+
+@mixin black-text-item()
+    cursor: pointer
+    &:hover
+        color: #A65CF0
+    &:focus
+        color: #333
+        background-color: #EBD1FF
+    & a:focus
+        color: #7033AC
+        background-color: #EBD1FF
+        outline: 1px solid initial
+    &:active
+        background-color: initial
+        color: #7033AC
+        
+@mixin arrow-svg-animation()
+    cursor: pointer
+    &:hover g path 
+        stroke: #fff
+        z-index: 2
+    &:hover g circle
+        fill: #A65CF0
+        z-index: 1
+    &:focus g circle
+        fill: #C998FB
+    &:focus g path 
+        stroke: #fff
+    &:active g circle
+        fill: #7033AC
+        stroke: #7033AC
+    &:active g path 
+        stroke: #fff
+
+@mixin menu-svg-animation()
+    cursor: pointer
+    &:hover  path 
+        fill: #C998FB
+    &:focus 
+        background-color: #C998FB
+    &:focus  path 
+        fill: #fff
+        
+    &:active  path 
+        fill: #7033AC
+
+@mixin menu-tel-animation()
+    &:hover svg use
+        fill: #FFBD59
+    &:hover a
+        color: #FFBD59
+    &:focus 
+        background-color: #FFF5D1
+        color: #FF862F
+    &:focus svg use
+        fill: #FF862F
+    &:active svg use
+        fill: #BB370E
+    &:active a
+        color: #BB370E
+
+
+
+.btn:hover
+    cursor: pointer
+input:focus
+    outline: 1px solid #A65CF0
+
+@mixin input-hover()
+    &:hover 
+        background-color: #EAEAEA
+    &:focus
+        background-color: #F8EFFF
+    &:active
+
+@mixin page-number()
+    cursor: pointer
+    &:hover 
+        background-color: #A65CF0
+        color: #fff
+    &:focus
+        background-color: #C998FB
+        color: #fff
+        border-color: #A65CF0
+    &:active
+        background-color: #7033AC
+        border-color: #7033AC
+        color: #fff

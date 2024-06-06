@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "OS";
+  src: url("../fonts/opensans.woff2") format("woff2"), url("../fonts/opensans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "pd";
+  src: url("../fonts/pd.woff2") format("woff2"), url("../fonts/pd.woff") format("woff");
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: 1px solid #A65CF0;
+}
+
+footer {
+  width: 100%;
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #EAEAEA;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+@media (max-width: 1170px) {
+  .footer-container {
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+@media (max-width: 979px) {
+  .footer-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.footer__logo {
+  grid-column: 1/3;
+  grid-row: 1;
+}
+@media (max-width: 979px) {
+  .footer__logo {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    position: relative;
+    top: 1px;
+  }
+}
+@media (max-width: 650px) {
+  .footer__logo {
+    grid-row: 1;
+    grid-column: 1/7;
+    justify-self: center;
+    margin-bottom: 25px;
+    top: -1px;
+  }
+}
+.footer__social {
+  grid-column: 1/3;
+  grid-row: 2;
+}
+@media (max-width: 979px) {
+  .footer__social {
+    grid-row: 1/2;
+    grid-column: 4/7;
+    align-self: end;
+  }
+}
+@media (max-width: 650px) {
+  .footer__social {
+    grid-row: 2;
+    grid-column: 1/7;
+    justify-self: center;
+  }
+}
+.footer__menu {
+  grid-column: 5/13;
+  grid-row: 1/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+@media (max-width: 1170px) {
+  .footer__menu {
+    grid-column: 3/10;
+  }
+}
+@media (max-width: 979px) {
+  .footer__menu {
+    grid-row: 2/3;
+    grid-column: 1/7;
+    padding-left: 0;
+    padding-top: 19px;
+  }
+}
+@media (max-width: 650px) {
+  .footer__menu {
+    grid-row: 3;
+    grid-column: 1/7;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 25px;
+    padding-top: 12px;
+    -moz-column-gap: 20px;
+         column-gap: 20px;
+  }
+}
+.footer__menu-list {
+  display: flex;
+  flex-direction: column;
+}
+.footer__menu-list li {
+  font-size: 14px;
+  color: #999999;
+  line-height: 150%;
+}
+.footer__menu-list li:first-child {
+  color: #333333;
+  font-size: 16px;
+}
+@media (max-width: 650px) {
+  .footer__menu-list {
+    grid-column: auto/span 3;
+    justify-self: left;
+  }
+}
+.footer__menu-item {
+  cursor: pointer;
+}
+.footer__menu-item:hover {
+  color: #A65CF0;
+}
+.footer__menu-item:focus {
+  color: #7033AC;
+  background-color: #EBD1FF;
+}
+.footer__menu-item a:focus {
+  color: #7033AC;
+  background-color: #EBD1FF;
+  outline: 1px solid initial;
+}
+.footer__menu-item:active {
+  background-color: initial;
+  color: #7033AC;
+}
+.footer__menu-service {
+  position: relative;
+  left: -20px;
+}
+@media (max-width: 650px) {
+  .footer__menu-service {
+    left: 0;
+  }
+}
+.footer__menu-contact {
+  position: relative;
+  right: 15px;
+}
+@media (max-width: 650px) {
+  .footer__menu-contact {
+    right: 0;
+  }
+}
+.footer__social-list {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 5px;
+}
+@media (max-width: 979px) {
+  .footer__social-list {
+    justify-content: flex-end;
+    padding-right: 32px;
+    top: 0;
+  }
+}
+@media (max-width: 650px) {
+  .footer__social-list {
+    top: -6px;
+    padding-right: 0;
+  }
+}
+.footer__social-icon {
+  margin-right: 20px;
+}
+@media (max-width: 650px) {
+  .footer__social-icon:last-child {
+    margin-right: 0;
+  }
+}
+.footer__social-icon:hover svg > path {
+  fill: #A65CF0;
+}
+.footer__social-icon:active svg > path {
+  fill: #7033AC;
+}
+.footer__social-icon:focus svg > path {
+  fill: #7033AC;
+}
+.footer__social-icon a:hover svg > path {
+  fill: #A65CF0;
+}
+.footer__social-icon a:active svg > path {
+  fill: #7033AC;
+}
+.footer__social-icon a:focus svg > path {
+  fill: #7033AC;
+}
+.footer__copyright {
+  background-color: #F6F6F6;
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=footer.css.map */

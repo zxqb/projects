@@ -1,0 +1,262 @@
+@import 'variables'
+@import 'mixin'
+@import animation
+
+@font-face 
+    font-family: 'OS'
+    src: url('../fonts/opensans.woff2') format('woff2'), url('../fonts/opensans.woff') format('woff')
+    font-weight: normal
+    font-style: normal
+
+@font-face 
+    font-family: 'pd'
+    src: url('../fonts/pd.woff2') format('woff2'), url('../fonts/pd.woff') format('woff')
+
+// main 
+main
+    min-height: 100vh
+.section-catalog
+    padding-top: 20px
+    padding-bottom: 70px
+    @include _1170
+        padding-bottom: 65px
+    @include _480
+        padding-top: 0
+    @include _350
+        padding-bottom: 87px
+.catalog
+    @include checkbox()
+    @include navigation()
+    @include catalog-item()
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    column-gap: 32px
+    row-gap: 30px
+    @include _1170
+        grid-template-columns: repeat(9, 1fr)
+    @include _979
+        grid-template-columns: repeat(6, 1fr)
+    @include _350
+         row-gap: 25px
+    &__navigation
+        
+        grid-column: 1/13
+        grid-row: 1
+        @include _1170
+            grid-column: 1/10
+        @include _979
+            grid-column: 1/7
+        @include _480
+            display: none
+    &__navigation-item
+        @include grey-text-item()
+    
+    &__filter
+        grid-column: 1/4
+        grid-row: 2/4
+        @include _1170
+            grid-row: 3
+            grid-column: 1/10
+            display: flex
+            flex-direction: row
+        @include _979
+            grid-column: 1/7
+        @include _650
+            flex-wrap: wrap
+    &__banner
+        grid-column: 1/4
+        grid-row: 4
+        width: 100%
+        height: 360px
+        background-color: $black
+        position: relative
+        display: flex
+        align-items: flex-end
+        justify-content: flex-end
+        flex-direction: column
+        border-radius: 10px
+        padding: 30px 60px 30px 30px
+        @include _1170
+            display: none
+    &__banner-pic
+        position: absolute
+        top: 0
+        left: 0
+    &__banner-desc 
+        margin-bottom: 15px
+        color: $grey    
+        span
+            font-family: pd
+            color: #D5B986
+            font-size: 24px
+    &__banner-link
+        display: flex
+        align-content: center
+        align-self: flex-start
+        color: #A65CF0
+        @include arrow-svg-animation()
+        a
+            border-bottom: 2px solid #ffffff00
+        &:hover
+            a
+                border-bottom: 2px solid #A65CF0
+        &:focus 
+            a
+                border-bottom: 2px solid #A65CF0
+            svg  circle 
+                fill: #C998FB
+            svg path 
+                fill: #fff
+        &:active
+            a
+                color: #7033AC
+                border-bottom: 2px solid #7033AC
+            svg  circle 
+                fill: #7033AC
+                stroke: #7033AC
+            svg path 
+                fill: #fff
+
+        svg
+            position: relative
+            left: 12px
+            top: 1px
+    &__title
+        grid-column: 4/13
+        grid-row: 2
+        font-size: 24px
+        line-height: 110%
+        position: relative
+        top: 2px
+        @include _1170
+            grid-column: 1/10
+        @include _979
+            grid-column: 1/7
+    &__main-list
+        grid-column: 4/13
+        grid-row: 3 / 5 
+        display: grid
+        grid-template-columns: repeat(9, 1fr)
+        gap: 32px
+        grid-template-rows: minmax(420px, auto)
+        grid-auto-rows: minmax(420px, auto)
+        @include _1170
+            grid-column: 1/10
+            grid-row: 4
+            position: relative
+            top: -6px
+            @include _350
+                top: 8px
+                gap: 15px
+        @include _979
+            grid-column: 1/7
+            grid-template-columns: repeat(6, 1fr)
+        @include _650
+            grid-template-rows: minmax(278px, auto)
+            grid-auto-rows: minmax(278px, auto)
+        
+    &__item
+        @include _768
+            &:nth-child(n+7)
+                display: none
+        @include _480
+            padding-top: 30px
+        @include _350
+            padding-top: 0
+    &__item-up
+        min-height: 200px
+        @include _480
+            min-height: 80px 
+    &__page-number  
+        grid-column: 4/13
+        grid-row: 5
+        justify-self: center
+        
+        @include _1170
+            grid-column: 1/10
+        @include _979
+            grid-column: 1/7
+        @include _350
+            position: relative
+            top: 22px
+    &__page-number-list
+        display: flex
+        flex-direction: row
+        @include _1170
+            position: relative
+            top: -5px
+    &__page-number-item
+        @include page-number()
+        width: 32px
+        height: 32px
+        border-radius: 10px
+        color: #A65CF0
+        border: 2px solid #A65CF0
+        text-align: center
+        line-height: 160%
+        &:last-child
+            display: none
+        &:not(:first-child)
+            margin-left: 16px
+        
+        @include _979
+            &:last-child
+                display: inline-block
+        &.checked
+            background-color: #A65CF0
+            color: #FFF
+
+        
+    
+    &__filter-list
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        &:not(:last-child)
+            margin-bottom: 25px
+        @include _1170
+            &:not(:last-child)
+                margin-bottom: 0
+            margin-right: 50px
+            @include _350
+                margin-right: 32px
+            &:last-of-type
+                margin-right: 80px
+                @include _480
+                    margin-right: 0
+    &__filter-item
+        display: inline-block
+        
+        &:not(:last-child)
+            margin-bottom: 10px 
+        & label:focus
+            color: #7033AC
+            background-color: #EBD1FF    
+        @include _650
+            &:last-child
+                margin-bottom: 25px
+                @include _350
+                    margin-bottom: 16px
+    &__filter-title
+        font-size: 18px
+        margin-bottom: 20px
+        @include _1170
+            display: none
+    &__filter-price label
+        margin-right: 5px
+    &__filter-price input 
+        width: 86px
+        padding-left: 12px
+    &__filter-price-title
+        margin-bottom: 8px
+    &__filter-price-number
+        color: $grey
+        margin-right: 5px
+        border-radius: 2px
+        border-color: #999999
+        border-style: solid
+        &:hover 
+            border-color: #A65CF0
+        &:focus
+            background-color: #EBD1FF
+            

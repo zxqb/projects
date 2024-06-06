@@ -1,0 +1,7 @@
+.btn:hover {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: 1px solid #A65CF0;
+}/*# sourceMappingURL=animation.css.map */
